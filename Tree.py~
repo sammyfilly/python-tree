@@ -43,7 +43,7 @@ class Tree:
     
     def preorder_traversal(self, root):
         if root is not None:
-            print(root.data)
+            print(self)
             self.preorder_traversal(root.left)
             self.preorder_traversal(root.right)
             
@@ -52,7 +52,7 @@ class Tree:
         if root is not None:
             self.postorder_traversal(root.left)
             self.postorder_traversal(root.right)
-            print(root.data)
+            print(self)
 
     def breadth_first_traversal(self, root):
         q = queue.Queue()
