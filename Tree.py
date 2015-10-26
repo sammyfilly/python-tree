@@ -1,4 +1,4 @@
-import queue
+from collections import deque
 
 class Node:
     """
@@ -55,12 +55,25 @@ class Tree:
             print(root.data)
 
     def breadth_first_traversal(self, root):
-        q = queue.Queue()
-        q.put(root)
-        while not q.empty():
-            node = q.get()
+        q = deque([])
+        q.append(root)
+        while len(q) != 0:
+            node = q.popleft()
             print(node.data)
             if node.left is not None:
-                q.put(node.left)
+                q.append(node.left)
             if node.right is not None:
-                q.put(node.right)
+                q.append(node.right)
+
+    def tree_height(self, root):
+        if root is None:
+            return 0
+        else:
+            l_height = tree_height(root.left)
+            r_height = tree_height(root.right)
+            return (l_height+1) if l_height > r_height else (r_height+1)
+
+#    def pretty_print(self, root, depth):
+#        if root is not None:
+            
+
