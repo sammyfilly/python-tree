@@ -68,10 +68,9 @@ class Tree:
     def tree_height(self, root):
         if root is None:
             return 0
-        else:
-            l_height = tree_height(root.left)
-            r_height = tree_height(root.right)
-            return (l_height+1) if l_height > r_height else (r_height+1)
+        l_height = tree_height(root.left)
+        r_height = tree_height(root.right)
+        return (l_height+1) if l_height > r_height else (r_height+1)
 
 #    def pretty_print(self, root, depth):
 #        if root is not None:
